@@ -1,13 +1,12 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import cors from "cors";
 import routes from "./routes/index.js";
 import { errorHandler } from "./middlewares/error.js";
+import { corsMiddleware } from "./middlewares/cors.js";
 
 const app = express();
 
-// Middleware
-app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
+app.use(corsMiddleware);
 app.use(express.json({ limit: "2mb" }));
 app.use(cookieParser());
 
