@@ -11,7 +11,7 @@ export const registerSchema = z.object({
   password: z.string().regex(passwordRegex, 
     "Password must be 8+ chars, include uppercase, lowercase, number, and special char"),
   preferences: z.array(z.string()).optional(),
-  profileImage: z.string().url().optional(), 
+  // profileImage: z.string().url().optional(), 
 });
 
 export const loginSchema = z.object({
