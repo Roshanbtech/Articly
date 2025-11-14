@@ -28,7 +28,6 @@ export const register = async (payload) => {
     passwordHash,
     role: "user",
     preferences: preferences || [],
-    profileImage: "",
   });
 
   return user; 
