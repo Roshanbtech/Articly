@@ -6,6 +6,7 @@ import categoryRoutes from "./category.routes.js";
 import bannerRoutes from "./banner.routes.js";
 import articleRoutes from "./article.routes.js";
 import reactionRoutes from "./reaction.routes.js";
+import adminDashboardRoutes from "./admin.dashboard.routes.js";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use("/categories", categoryRoutes);
 router.use("/banners", bannerRoutes);
 router.use("/reactions", reactionRoutes);
 router.use("/articles", articleRoutes);
+router.use("/admin/dashboard", adminDashboardRoutes);
 
 export default router;
