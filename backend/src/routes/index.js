@@ -5,6 +5,7 @@ import userRoutes from "./user.routes.js";
 import categoryRoutes from "./category.routes.js";
 import bannerRoutes from "./banner.routes.js";
 import articleRoutes from "./article.routes.js";
+import reactionRoutes from "./reaction.routes.js";
 
 const router = Router();
 
@@ -13,6 +14,7 @@ router.use("/auth", authRoutes);
 router.use("/users", userRoutes);
 router.use("/categories", categoryRoutes);
 router.use("/banners", bannerRoutes);
+router.use("/reactions", reactionRoutes);
 router.use("/articles", articleRoutes);
 
 export default router;
