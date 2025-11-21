@@ -58,6 +58,7 @@ export const getTopUsersByArticleCount = async (limit = 5) => {
         lastName: "$user.lastName",
         email: "$user.email",
         role: "$user.role",
+        profileImage: "$user.profileImage",
         isBlocked: "$user.isBlocked",
         articleCount: 1,
         createdAt: "$user.createdAt",
@@ -119,7 +120,7 @@ export const getRecentUsers = async (limit = 5) => {
   return User.find({})
     .sort({ createdAt: -1 })
     .limit(limit)
-    .select("firstName lastName email role isBlocked createdAt");
+    .select("firstName lastName email role isBlocked profileImage createdAt");
 };
 
 // ---- RECENT ARTICLES ----
@@ -127,7 +128,8 @@ export const getRecentArticles = async (limit = 5) => {
   return Article.find({})
     .sort({ createdAt: -1 })
     .limit(limit)
-    .select("title description category author likesCount createdAt");
+    .select("title description category author likesCount createdAt")
+    .populate("category", "name");
 };
 
 // ---- USER GROWTH (LAST 6 MONTHS) ----

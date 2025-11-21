@@ -1,7 +1,7 @@
 import * as dashboardRepo from "../repositories/dashboard.repo.js";
 import { articleDTO } from "../dtos/article.dto.js";
 import { categoryDTO } from "../dtos/category.dto.js";
-import { publicUserDTO } from "../dtos/user.dto.js";
+import { publicUserDTO, articlyUserDTO } from "../dtos/user.dto.js";
 
 // ---- OVERVIEW ----
 export const getOverview = async () => {
@@ -24,7 +24,7 @@ export const getTopUsers = async (limit = 5) => {
   const rows = await dashboardRepo.getTopUsersByArticleCount(limit);
 
   return rows.map((row) => ({
-    user: publicUserDTO(row),
+    user: articlyUserDTO(row),
     articleCount: row.articleCount,
     isBlocked: row.isBlocked,
     createdAt: row.createdAt,
@@ -52,7 +52,9 @@ export const getTopArticles = async (limit = 5) => {
 // ---- RECENT USERS ----
 export const getRecentUsers = async (limit = 5) => {
   const users = await dashboardRepo.getRecentUsers(limit);
-  return users.map((u) => publicUserDTO(u));
+  console.log(users)
+  return users.map((u) => articlyUserDTO(u));
+  console.log(users)
 };
 
 // ---- RECENT ARTICLES ----

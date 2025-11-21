@@ -5,7 +5,7 @@ dotenv.config();
 const {
 JWT_ACCESS_SECRET,
 JWT_REFRESH_SECRET,
-ACCESS_TOKEN_TTL_MIN = 15,
+ACCESS_TOKEN_TTL_MIN = 1,
 REFRESH_TOKEN_TTL_DAYS = 30,
 } = process.env;
 

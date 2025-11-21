@@ -7,7 +7,8 @@ export const articleDTO = (article) => {
     description: article.description,
     images: article.images || [],
     tags: article.tags || [],
-    category: article.category,
+   category: article.category?._id || article.category,   // always return ID
+    categoryName: article.category?.name || null,         // populated name
     author: article.author,
     likesCount: article.likesCount,
     dislikesCount: article.dislikesCount,
