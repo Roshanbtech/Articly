@@ -8,7 +8,7 @@ import { changePassword } from "../../services/user.service";
 import { ApiClientError } from "../../lib/apiClientError";
 import type { ApiErrorResponse } from "../../types/api.types";
 import { mapValidationErrors, type FieldErrorMap } from "../../lib/validation";
-import Loader from "../Loader";
+import Loader from "../common/Loader";
 
 const GOLD_GRADIENT =
   "linear-gradient(135deg, #D4AF37 0%, #f4e7b0 40%, #D4AF37 100%)";
