@@ -20,9 +20,9 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/common/Navbar";
 import InteractiveBackground from "../../components/backgrounds/InteractiveBackground";
-import SkeletonCard from "../../components/SkeletonCard";
+import SkeletonCard from "../../components/skeletons/SkeletonCard";
 
 import { useAuth } from "../../hooks/useAuth";
 import { useAdminCategories } from "../../hooks/useAdminCategories";
