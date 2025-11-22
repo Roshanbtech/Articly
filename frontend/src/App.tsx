@@ -1,11 +1,24 @@
-const App = () => {
-  return (
-    <div className="space-y-4 p-6">
-      <div className="text-red-500">Red Text</div>
-      <div className="text-green-500">Green Text</div>
-      <div className="text-blue-500">Blue Text</div>
-    </div>
-  )
-}
+import React, { useEffect } from 'react';
+import { useAuth } from './hooks/useAuth';
+import Loader from './components/Loader';
+import AppRoutes from './routes/AppRoutes';
 
-export default App
+const App: React.FC = () => {
+  const { initializing, loadSession } = useAuth();
+
+  useEffect(() => {
+    loadSession();
+  }, []);
+
+  if (initializing) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <Loader />
+      </div>
+    );
+  }
+
+  return <AppRoutes />;
+};
+
+export default App;
