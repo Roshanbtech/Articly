@@ -21,9 +21,9 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/common/Navbar";
 import InteractiveBackground from "../../components/backgrounds/InteractiveBackground";
-import SkeletonCard from "../../components/SkeletonCard";
+import SkeletonCard from "../../components/skeletons/SkeletonCard";
 
 import { useAuth } from "../../hooks/useAuth";
 import { useAdminBanners } from "../../hooks/useAdminBanners";
@@ -206,8 +206,10 @@ const AdminBanners: React.FC<AdminBannersProps> = ({ onLogout }) => {
     }
   };
 
+  // Empty state driven directly by backend-filtered list
   const emptyState = !loading && banners.length === 0;
 
+  // Range label based on backend total
   const rangeLabel = useMemo(() => {
     if (total === 0) return "0 of 0";
     const start = (page - 1) * limit + 1;

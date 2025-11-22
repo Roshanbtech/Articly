@@ -1,7 +1,7 @@
 // src/pages/dashboard/AdminDashboard.tsx
-import { useMemo, useCallback } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useMemo, useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Users,
   FileText,
@@ -10,7 +10,7 @@ import {
   Eye,
   ThumbsUp,
   Crown,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   LineChart,
   Line,
@@ -22,42 +22,42 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from 'recharts';
+} from "recharts";
 
-import Navbar from '../../components/Navbar';
-import SkeletonCard from '../../components/SkeletonCard';
-import InteractiveBackground from '../../components/backgrounds/InteractiveBackground';
-import { useAdminDashboard } from '../../hooks/useAdminDashboard';
-import { useAuth } from '../../hooks/useAuth';
-import type { AdminTopArticle } from '../../types/admin-dashboard.types';
+import Navbar from "../../components/common/Navbar";
+import SkeletonCard from "../../components/skeletons/SkeletonCard";
+import InteractiveBackground from "../../components/backgrounds/InteractiveBackground";
+import { useAdminDashboard } from "../../hooks/useAdminDashboard";
+import { useAuth } from "../../hooks/useAuth";
+import type { AdminTopArticle } from "../../types/admin-dashboard.types";
 
 interface AdminDashboardProps {
   onLogout: () => void;
 }
 
-const GOLD = '#D4AF37';
+const GOLD = "#D4AF37";
 const CATEGORY_COLORS = [
-  '#8b5cf6',
-  '#ec4899',
-  '#3b82f6',
-  '#10b981',
-  '#f59e0b',
-  '#6366f1',
+  "#8b5cf6",
+  "#ec4899",
+  "#3b82f6",
+  "#10b981",
+  "#f59e0b",
+  "#6366f1",
 ];
 
 const MONTH_LABELS = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
@@ -80,28 +80,28 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
     return [
       {
-        label: 'Total Users',
+        label: "Total Users",
         value: counts.totalUsers.toString(),
         icon: Users,
-        color: 'from-purple-500 to-purple-600',
+        color: "from-purple-500 to-purple-600",
       },
       {
-        label: 'Total Articles',
+        label: "Total Articles",
         value: counts.totalArticles.toString(),
         icon: FileText,
-        color: 'from-pink-500 to-pink-600',
+        color: "from-pink-500 to-pink-600",
       },
       {
-        label: 'Total Reactions',
+        label: "Total Reactions",
         value: counts.totalReactions.toString(),
         icon: Activity,
-        color: 'from-blue-500 to-blue-600',
+        color: "from-blue-500 to-blue-600",
       },
       {
-        label: 'Total Categories',
+        label: "Total Categories",
         value: counts.totalCategories.toString(),
         icon: Eye,
-        color: 'from-green-500 to-green-600',
+        color: "from-green-500 to-green-600",
       },
     ];
   }, [data]);
@@ -177,7 +177,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
               className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl shadow-[0_0_30px_rgba(212,175,55,0.55)] mb-3"
               style={{
                 background:
-                  'linear-gradient(135deg, #D4AF37 0%, #f4e7b0 40%, #D4AF37 100%)',
+                  "linear-gradient(135deg, #D4AF37 0%, #f4e7b0 40%, #D4AF37 100%)",
               }}
             >
               <TrendingUp className="w-4 h-4 text-black" />
@@ -233,9 +233,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                           <Icon className="w-6 h-6" />
                         </div>
                       </div>
-                      <p className="text-xs text-gray-400 mb-1">
-                        {stat.label}
-                      </p>
+                      <p className="text-xs text-gray-400 mb-1">{stat.label}</p>
                       <p className="text-xl font-semibold text-gray-50">
                         {stat.value}
                       </p>
@@ -263,19 +261,19 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                       <XAxis
                         dataKey="month"
                         stroke="#9ca3af"
-                        tick={{ fill: '#9ca3af', fontSize: 12 }}
+                        tick={{ fill: "#9ca3af", fontSize: 12 }}
                       />
                       <YAxis
                         stroke="#9ca3af"
-                        tick={{ fill: '#9ca3af', fontSize: 12 }}
+                        tick={{ fill: "#9ca3af", fontSize: 12 }}
                       />
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: 'rgba(0,0,0,0.9)',
+                          backgroundColor: "rgba(0,0,0,0.9)",
                           borderRadius: 12,
-                          border: '1px solid rgba(212,175,55,0.5)',
-                          backdropFilter: 'blur(10px)',
-                          color: '#f9fafb',
+                          border: "1px solid rgba(212,175,55,0.5)",
+                          backdropFilter: "blur(10px)",
+                          color: "#f9fafb",
                         }}
                       />
                       <Line
@@ -324,12 +322,14 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                       </Pie>
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: 'rgba(0,0,0,0.9)',
+                          backgroundColor: "rgba(0,0,0,0.9)",
                           borderRadius: 12,
-                          border: '1px solid rgba(212,175,55,0.5)',
-                          backdropFilter: 'blur(10px)',
-                          color: '#f9fafb',
+                          border: "1px solid rgba(212,175,55,0.5)",
+                          backdropFilter: "blur(10px)",
+                          color: "#D4AF37", 
                         }}
+                        labelStyle={{ color: "#D4AF37" }} 
+                        itemStyle={{ color: "#D4AF37" }} 
                       />
                     </PieChart>
                   </ResponsiveContainer>
@@ -383,7 +383,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                           className="flex-shrink-0 w-8 h-8 rounded-full text-black flex items-center justify-center"
                           style={{
                             background:
-                              'linear-gradient(135deg, #D4AF37 0%, #f4e7b0 40%, #D4AF37 100%)',
+                              "linear-gradient(135deg, #D4AF37 0%, #f4e7b0 40%, #D4AF37 100%)",
                           }}
                         >
                           {/* {index + 1} */}
@@ -391,7 +391,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                             src={
                               article.images && article.images.length > 0
                                 ? article.images[0]
-                                : ''
+                                : ""
                             }
                             alt={article.title}
                             className="w-full h-full rounded-full object-cover"
@@ -402,8 +402,8 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                             {article.title}
                           </p>
                           <p className="text-xs text-gray-400">
-                            by{' '}
-                            {authorNameById[article.author] ?? 'Unknown author'}
+                            by{" "}
+                            {authorNameById[article.author] ?? "Unknown author"}
                           </p>
                         </div>
                         <div className="flex items-center gap-3 text-xs text-gray-300">
@@ -451,7 +451,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm text-gray-100">
-                            {contributor.user.firstName}{' '}
+                            {contributor.user.firstName}{" "}
                             {contributor.user.lastName}
                           </p>
                           <p className="text-xs text-gray-400">
@@ -535,9 +535,8 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                         </div>
                         <div className="flex items-center justify-between text-xs text-gray-400">
                           <span>
-                            by{' '}
-                            {authorNameById[article.author] ??
-                              'Unknown author'}
+                            by{" "}
+                            {authorNameById[article.author] ?? "Unknown author"}
                           </span>
                           <span>
                             {new Date(article.createdAt).toLocaleDateString()}
