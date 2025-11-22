@@ -7,12 +7,14 @@ import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 
 import type { AuthUser } from '../types/auth.types';
-import UserDashboard from '../pages/dashboard/UserDashboard';
+// import UserDashboard from '../pages/dashboard/UserDashboard';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import AdminCategories from '../pages/admin/AdminCategories';
 import { useAuth } from '../hooks/useAuth';
 import AdminBanners from '../pages/admin/AdminBanners';
 import AccountSettings from '../pages/settings/AccountSettings';
+import UserDashboard from '../pages/user/UserDashboard';
+import UserArticlesPage from '../pages/user/UserArticles';
 
 const AppRoutes: React.FC = () => {
   const navigate = useNavigate();
@@ -71,6 +73,10 @@ const AppRoutes: React.FC = () => {
               onLogout={handleLogout}
             />
           }
+        />
+        <Route
+          path="/user/articles"
+          element={<UserArticlesPage onLogout={handleLogout} />}
         />
         <Route
           path="/user/settings"

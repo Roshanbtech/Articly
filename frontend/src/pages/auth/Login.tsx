@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, Lock, LogIn, Sparkles } from 'lucide-react';
 import type { CancelTokenSource } from 'axios';
 
-import Loader from '../../components/Loader';
+import Loader from '../../components/common/Loader';
 import InteractiveBackground from '../../components/backgrounds/InteractiveBackground';
 
 import { useAuth } from '../../hooks/useAuth';

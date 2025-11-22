@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
-import Loader from './components/Loader';
+import Loader from './components/common/Loader';
 import AppRoutes from './routes/AppRoutes';
 
 const App: React.FC = () => {

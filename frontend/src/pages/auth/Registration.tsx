@@ -22,7 +22,7 @@ import axios from 'axios';
 import type { CancelTokenSource } from 'axios';
 import { toast } from 'sonner';
 
-import Loader from '../../components/Loader';
+import Loader from '../../components/common/Loader';
 import InteractiveBackground from '../../components/backgrounds/InteractiveBackground';
 
 import { useAuth } from '../../hooks/useAuth';
