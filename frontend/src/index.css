@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+body {
+  @apply bg-black text-white;
+}
+
+/* Smooth, minimal gold scrollbar (WebKit: Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37; /* primary gold */
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f4e7b0; /* lighter “glow” gold */
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 transparent;
+}
