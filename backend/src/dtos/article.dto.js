@@ -1,15 +1,33 @@
 export const articleDTO = (article) => {
   if (!article) return null;
 
+  const category = article.category;
+  const author = article.author;
+
+  const categoryId =
+    category && typeof category === "object" ? category._id : category;
+
+  const categoryName =
+    category && typeof category === "object" ? category.name ?? null : null;
+
+  const authorId =
+    author && typeof author === "object" ? author._id : author;
+
+  const authorName =
+    author && typeof author === "object"
+      ? [author.firstName, author.lastName].filter(Boolean).join(" ")
+      : null;
+
   return {
     id: article._id,
     title: article.title,
     description: article.description,
     images: article.images || [],
     tags: article.tags || [],
-   category: article.category?._id || article.category,   // always return ID
-    categoryName: article.category?.name || null,         // populated name
-    author: article.author,
+    category: categoryId,          
+    categoryName,                  
+    author: authorId,             
+    authorName,              
     likesCount: article.likesCount,
     dislikesCount: article.dislikesCount,
     blocksCount: article.blocksCount,

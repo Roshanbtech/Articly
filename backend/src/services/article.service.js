@@ -2,7 +2,20 @@ import mongoose from "mongoose";
 import * as articleRepo from "../repositories/article.repo.js";
 import * as userRepo from "../repositories/user.repo.js";
 import { getPagination } from "../utils/pagination.js";
-import Article from "../models/Article.js";
+// import Article from "../models/Article.js";
+
+const normalizeId = (value) => {
+  if (!value) return null;
+
+  // Direct string
+  if (typeof value === "string") return value;
+
+  // Mongoose doc or ObjectId with _id
+  if (value._id) return value._id.toString();
+
+  // Raw ObjectId
+  return value.toString();
+};
 
 export const createArticle = async (authorId, payload, imageUrls = []) => {
   const { title, description, tags, category } = payload;
@@ -30,12 +43,15 @@ export const getArticleById = async (id) => {
 };
 
 // Only author can update; admin could be added later if required
-export const updateArticle = async (currentUser, articleId, payload, imageUrls) => {
+export const updateArticle = async (currentUser, articleId, payload, imageUrls, tags) => {
   const article = await articleRepo.findById(articleId);
   if (!article) throw { status: 404, message: "Article not found" };
 
+  const authorId = normalizeId(article.author);
+  const currentUserId = normalizeId(currentUser._id);
+
   if (
-    article.author.toString() !== currentUser._id.toString() &&
+    authorId !== currentUserId &&
     currentUser.role !== "admin"
   ) {
     throw { status: 403, message: "You are not allowed to edit this article" };
@@ -47,6 +63,10 @@ export const updateArticle = async (currentUser, articleId, payload, imageUrls) 
     updateData.images = imageUrls;
   }
 
+  if(Array.isArray(tags)) {
+    updateData.tags = tags;
+  }
+
   const updated = await articleRepo.updateById(articleId, updateData);
   return updated;
 };
@@ -55,8 +75,10 @@ export const deleteArticle = async (currentUser, articleId) => {
   const article = await articleRepo.findById(articleId);
   if (!article) throw { status: 404, message: "Article not found" };
 
-  if (
-    article.author.toString() !== currentUser._id.toString() &&
+  const authorId = normalizeId(article.author);
+  const currentUserId = normalizeId(currentUser._id);
+
+  if ( authorId !== currentUserId &&
     currentUser.role !== "admin"
   ) {
     throw { status: 403, message: "You are not allowed to delete this article" };
@@ -124,8 +146,10 @@ export const listFeedArticles = async (userId, query) => {
 export const togglePublish = async (currentUser, articleId) => {
   const article = await articleRepo.findById(articleId);
   if (!article) throw { status: 404, message: "Article not found" };
-  if (
-    article.author.toString() !== currentUser._id.toString() &&
+
+  const authorId = normalizeId(article.author);
+  const currentUserId = normalizeId(currentUser._id);
+  if ( authorId !== currentUserId &&
     currentUser.role !== "admin"
   ) {
     throw { status: 403, message: "You are not allowed to toggle this article" };

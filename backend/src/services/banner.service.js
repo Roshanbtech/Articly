@@ -1,3 +1,4 @@
+// banner.service.js
 import { getPagination } from "../utils/pagination.js";
 import * as bannerRepo from "../repositories/banner.repo.js";
 
@@ -18,8 +19,27 @@ export const createBanner = async (payload, adminId, imageUrl) => {
 
 export const listAdminBanners = async (query) => {
   const { page, limit, skip } = getPagination(query);
-  const filter = {}; 
+  const filter = {};
 
+  // 1) Status filter (coming as string "true"/"false" from frontend)
+  if (typeof query.isActive === "string") {
+    if (query.isActive === "true") {
+      filter.isActive = true;
+    } else if (query.isActive === "false") {
+      filter.isActive = false;
+    }
+  }
+
+  // 2) Search filter (title/description)
+  if (query.search && query.search.trim().length > 0) {
+    const search = query.search.trim();
+    filter.$or = [
+      { title: { $regex: search, $options: "i" } },
+      { description: { $regex: search, $options: "i" } },
+    ];
+  }
+
+  // 3) Query DB with the same filter for data and total
   const [banners, total] = await Promise.all([
     bannerRepo.findManyAdmin(filter, { skip, limit }),
     bannerRepo.count(filter),
