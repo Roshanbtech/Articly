@@ -8,7 +8,7 @@ import PublicRoute from './PublicRoute';
 
 import type { AuthUser } from '../types/auth.types';
 import UserDashboard from '../pages/dashboard/UserDashboard';
-import AdminDashboard from '../pages/dashboard/AdminDashboard';
+import AdminDashboard from '../pages/admin/AdminDashboard';
 import AdminCategories from '../pages/admin/AdminCategories';
 import { useAuth } from '../hooks/useAuth';
 import AdminBanners from '../pages/admin/AdminBanners';
