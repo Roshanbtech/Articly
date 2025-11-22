@@ -12,7 +12,7 @@ import {
   mapValidationErrors,
   type FieldErrorMap,
 } from "../../lib/validation";
-import Loader from "../Loader";
+import Loader from "../common/Loader";
 
 interface ProfileSettingsProps {
   user: ArticlyUser;

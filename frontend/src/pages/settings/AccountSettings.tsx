@@ -1,12 +1,12 @@
 // src/pages/settings/AccountSettings.tsx
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { User, SlidersHorizontal, Shield } from "lucide-react";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/common/Navbar";
 import InteractiveBackground from "../../components/backgrounds/InteractiveBackground";
-import Loader from "../../components/Loader";
+import Loader from "../../components/common/Loader";
 
 import { useAuth } from "../../hooks/useAuth";
 import { useUserSettings } from "../../hooks/useUserSettings";
@@ -32,9 +32,12 @@ export default function AccountSettings({ onLogout }: AccountSettingsProps) {
   const { user, loading, error, setUser } = useUserSettings();
   const [activeTab, setActiveTab] = useState<SettingsTab>("profile");
 
-  const handleNavigate = (path: string) => {
-    navigate(path);
-  };
+  const handleNavigate = useCallback(
+    (path: string) => {
+      navigate(path);
+    },
+    [navigate]
+  );
 
   const handleUserUpdated = (updated: any) => {
     setUser(updated);

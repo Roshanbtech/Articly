@@ -8,7 +8,7 @@ import { updateUserPreferences } from "../../services/user.service";
 import type { ArticlyUser } from "../../types/user.types";
 import { ApiClientError } from "../../lib/apiClientError";
 import type { ApiErrorResponse } from "../../types/api.types";
-import Loader from "../Loader";
+import Loader from "../common/Loader";
 import { listCategories } from "../../services/category.service"; // already used elsewhere
 
 interface PreferencesSettingsProps {
