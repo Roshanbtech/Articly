@@ -18,7 +18,7 @@
 
   <br/>
 
-  <img src="docs/banner.png" alt="Articly Banner" style="max-width:720px; width:100%; border-radius:12px; border:1px solid #27272a;"/>
+  <img src="screenshots/ArticlyIcon.png" alt="Articly Banner" style="max-width:720px; width:100%; border-radius:12px; border:1px solid #27272a;"/>
 
 </div>
 
@@ -551,46 +551,112 @@ Reactions update counters and inform feed personalization logic.
 
 ## <span style="color:#facc15;">🟡🖼 Screenshots</span>
 
-Add your actual screenshots under something like `docs/screenshots/` and update the paths as needed.
-
 <table style="width:100%; border-collapse:collapse; font-size:0.95rem; margin-bottom:12px;">
   <thead>
     <tr>
       <th style="border:1px solid #27272a; padding:6px; background:#0b0b0f; color:#facc15; text-align:left;">Area / Feature</th>
-      <th style="border:1px solid #27272a; padding:6px; background:#0b0b0f; color:#facc15; text-align:left;">Screenshot Path</th>
+      <th style="border:1px solid #27272a; padding:6px; background:#0b0b0f; color:#facc15; text-align:left;">Screenshot</th>
     </tr>
   </thead>
   <tbody>
+
+    <!-- USER Screens -->
     <tr>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">User Dashboard – Article Feed</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/user-dashboard-feed.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">User Dashboard – Article Feed (1)</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/user/ArticlyFeed1.png" width="450" />
+      </td>
     </tr>
+
+    <tr>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">User Dashboard – Article Feed (2)</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/user/ArticlyFeed2.png" width="450" />
+      </td>
+    </tr>
+
     <tr>
       <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Article View Modal</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/article-view-modal.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/user/ArticlyViewModal.png" width="450" />
+      </td>
     </tr>
+
     <tr>
       <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Create Article Form</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/create-article.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/user/CreateArticle.png" width="450" />
+      </td>
     </tr>
+
     <tr>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin Dashboard Overview</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/admin-dashboard-overview.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">My Articles</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/user/ArticlyMyArticle.png" width="450" />
+      </td>
     </tr>
+
+    <!-- COMMON Screens -->
     <tr>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin – Manage Users</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/admin-users.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Login Page</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/common/ArticlyLogin.png" width="450" />
+      </td>
     </tr>
+
     <tr>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin – Manage Categories</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/admin-categories.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Register Page</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/common/ArticlyRegister.png" width="450" />
+      </td>
     </tr>
+
     <tr>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin – Manage Banners</td>
-      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">docs/screenshots/admin-banners.png</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Change Password</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/common/ArticlyPassword.png" width="450" />
+      </td>
     </tr>
+
+    <tr>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">User Preferences</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/common/ArticlyPreferences.png" width="450" />
+      </td>
+    </tr>
+
+    <tr>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Settings Page</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/common/ArticlySettings.png" width="450" />
+      </td>
+    </tr>
+
+    <!-- ADMIN Screens -->
+    <tr>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin Dashboard</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/admin/ArticlyAdminDashboard.png" width="450" />
+      </td>
+    </tr>
+
+    <tr>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin – Banners</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/admin/ArticlyBanners.png" width="450" />
+      </td>
+    </tr>
+
+    <tr>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">Admin – Categories</td>
+      <td style="border:1px solid #27272a; padding:6px; color:#e5e7eb;">
+        <img src="screenshots/admin/ArticlyCategory.png" width="450" />
+      </td>
+    </tr>
+
   </tbody>
 </table>
+
 
 **Example Markdown usage:**
 
