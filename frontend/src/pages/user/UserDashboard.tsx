@@ -12,7 +12,8 @@ import ArticleFormModal, {
 import { useAuth } from '../../hooks/useAuth';
 import { useArticleFeed } from '../../hooks/useArticleFeed';
 import { usePublicBanners } from '../../hooks/usePublicBanners';
-import { listCategories } from '../../services/category.service'; // already exist in your project
+import { listCategories } from '../../services/category.service'; 
+import ArticleViewModal from '../../components/articles/ArticleViewModal';
 import type { Article } from '../../types/article.types';
 import { Search } from 'lucide-react';
 
@@ -49,6 +50,10 @@ export default function UserDashboard({
   const [categories, setCategories] = useState<CategoryOption[]>([]);
   const [createOpen, setCreateOpen] = useState(false);
 
+  const [viewOpen, setViewOpen] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+
+
   useEffect(() => {
   (async () => {
     try {
@@ -74,6 +79,19 @@ export default function UserDashboard({
   const handleArticleCreated = () => {
     setPage(1);
     reload();
+  };
+
+  const handleOpenArticle = (article: Article) => {
+    console.log('[UserDashboard] handleOpenArticle called with', article.id);
+    setSelectedArticle(article);
+    setViewOpen(true);
+  };
+
+  const handleArticleUpdatedFromModal = (updated: Article) => {
+    setArticles((prev) =>
+      prev.map((a) => (a.id === updated.id ? updated : a))
+    );
+    setSelectedArticle(updated);
   };
 
   if (!user) return null;
@@ -192,6 +210,7 @@ export default function UserDashboard({
                     key={article.id}
                     article={article}
                     onArticleUpdated={handleArticleUpdateFromCard}
+                    onOpenArticle={handleOpenArticle}
                   />
                 ))}
               </div>
@@ -230,6 +249,17 @@ export default function UserDashboard({
         categories={categories}
         onClose={() => setCreateOpen(false)}
         onArticleCreated={handleArticleCreated}
+      />
+      {/* View article modal */}
+        <ArticleViewModal
+        open={viewOpen && !!selectedArticle}
+        article={selectedArticle}
+        onClose={() => {
+          console.log('Closing view modal');
+          setViewOpen(false);
+          setSelectedArticle(null);
+        }}
+        onArticleUpdated={handleArticleUpdatedFromModal}
       />
     </div>
   );

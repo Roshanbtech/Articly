@@ -20,6 +20,7 @@ import { toast } from "sonner";
 interface FeedArticleCardProps {
   article: Article;
   onArticleUpdated?: (article: Article) => void;
+  onOpenArticle?: (article: Article) => void;
 }
 
 const GOLD_GRADIENT =
@@ -28,10 +29,15 @@ const GOLD_GRADIENT =
 export default function FeedArticleCard({
   article,
   onArticleUpdated,
+  onOpenArticle,
 }: FeedArticleCardProps) {
   const [loading, setLoading] = useState(false);
 
   const primaryImage = article.images[0];
+
+  const handleCardClick = () => {
+    onOpenArticle?.(article);
+  }
 
   const handleReact = async (type: "like" | "dislike" | "block") => {
     try {
@@ -58,7 +64,8 @@ export default function FeedArticleCard({
     <motion.article
       whileHover={{ y: -4, scale: 1.01 }}
       className="rounded-2xl border border-[#D4AF37]/30 bg-black/70 backdrop-blur-xl shadow-[0_0_40px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col"
-    >
+      onClick={handleCardClick}
+   >
       {primaryImage && (
         <div className="relative h-44 overflow-hidden">
           <img
@@ -120,7 +127,10 @@ export default function FeedArticleCard({
           <div className="flex items-center gap-3 pt-2">
             <button
               disabled={loading}
-              onClick={() => handleReact("like")}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleReact("like");
+              }}
               className="flex items-center gap-1 text-xs text-emerald-300 hover:text-emerald-200 disabled:opacity-50"
             >
               <Heart className="w-3.5 h-3.5" />
@@ -128,7 +138,10 @@ export default function FeedArticleCard({
             </button>
             <button
               disabled={loading}
-              onClick={() => handleReact("dislike")}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleReact("dislike");
+              }}
               className="flex items-center gap-1 text-xs text-amber-300 hover:text-amber-200 disabled:opacity-50"
             >
               <ThumbsDown className="w-3.5 h-3.5" />
@@ -136,7 +149,10 @@ export default function FeedArticleCard({
             </button>
             <button
               disabled={loading}
-              onClick={() => handleReact("block")}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleReact("block");
+              }}
               className="flex items-center gap-1 text-xs text-red-300 hover:text-red-200 disabled:opacity-50"
             >
               <Slash className="w-3.5 h-3.5" />
