@@ -18,7 +18,7 @@ import UserArticlesPage from '../pages/user/UserArticles';
 
 const AppRoutes: React.FC = () => {
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
 
   const handleLoginSuccess = useCallback(
     (user: AuthUser) => {
