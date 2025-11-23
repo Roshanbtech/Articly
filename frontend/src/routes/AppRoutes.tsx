@@ -7,7 +7,6 @@ import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 
 import type { AuthUser } from '../types/auth.types';
-// import UserDashboard from '../pages/dashboard/UserDashboard';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import AdminCategories from '../pages/admin/AdminCategories';
 import { useAuth } from '../hooks/useAuth';
@@ -15,6 +14,7 @@ import AdminBanners from '../pages/admin/AdminBanners';
 import AccountSettings from '../pages/settings/AccountSettings';
 import UserDashboard from '../pages/user/UserDashboard';
 import UserArticlesPage from '../pages/user/UserArticles';
+import NotFoundPage from '../pages/common/NotFoundPage'; 
 
 const AppRoutes: React.FC = () => {
   const navigate = useNavigate();
@@ -107,7 +107,8 @@ const AppRoutes: React.FC = () => {
 
       {/* Default + fallback */}
       <Route path="/" element={<Navigate to="/auth/login" replace />} />
-      <Route path="*" element={<Navigate to="/auth/login" replace />} />
+      {/* <Route path="*" element={<Navigate to="/auth/login" replace />} /> */}
+      <Route path="*" element={<NotFoundPage /> } />
     </Routes>
   );
 };
