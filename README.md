@@ -18,7 +18,7 @@
 
   <br/>
 
-  <img src="screenshots/ArticlyIcon.png" alt="Articly Banner" style="max-width:720px; width:100%; border-radius:12px; border:1px solid #27272a;"/>
+  <img src="screenshots/common/ArticlyIcon.png" alt="Articly Banner" style="max-width:720px; width:100%; border-radius:12px; border:1px solid #27272a;"/>
 
 </div>
 
