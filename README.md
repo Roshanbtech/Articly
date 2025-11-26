@@ -42,8 +42,8 @@ Users can discover, react to, and manage articles tailored to their interests; a
 
 > Replace these placeholders with your actual hosted URLs and test credentials.
 
-- **Frontend (User/Admin Panel)**: `https://<your-frontend-url>`
-- **Backend API**: `https://<your-backend-api-url>/api`
+- **Frontend (User/Admin Panel)**: `https://articly-frontend.vercel.app/`
+- **Backend API**: `https://articly-backend.onrender.com/api`
 
 **Test Accounts** (Currently its been changed.)
 
